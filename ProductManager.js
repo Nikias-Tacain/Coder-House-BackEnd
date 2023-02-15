@@ -106,15 +106,17 @@ productManager.addProduct(contador++,"Mate Torpedo Acero", "", 2000,"",0031,10);
 productManager.addProduct(contador++,"Mate Camionera Acero", "", 2000,"",0014,10);
 console.log(productManager.getProduct());
 fs.writeFileSync('ProductManager.json', JSON.stringify(productManager.getProduct()))
-server.get("/products", (request, response) => {
-    response.send(productManager.product)
-})
-server.get("/products/:userId", (request, response)=> {
-    fs.readFile('ProductManager.json', 'utf-8', (err, data)=> {
-        const usuario = productManager.product.find(u => u.id === request.params.userId);
-        if (usuario) {
-            response.send(productManager.product);
-        }
-        response.send({message: "Usuario no encontrado."});
-    })
-})
+// server.get("/products", (request, response) => {
+//     response.send(productManager.product)
+// })
+// server.get("/products/:userId", (request, response)=> {
+//     fs.readFile('ProductManager.json', 'utf-8', (err, data)=> {
+//         const usuario = productManager.product.find(u => u.id === request.params.userId);
+//         if (usuario) {
+//             response.send(productManager.product);
+//         }
+//         response.send({message: "Usuario no encontrado."});
+//     })
+// })
+
+export default ProductManager;
